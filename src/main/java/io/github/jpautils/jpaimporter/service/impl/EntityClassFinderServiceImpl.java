@@ -4,6 +4,9 @@ import io.github.jpautils.jpaimporter.service.EntityClassFinderService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.metamodel.Type;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 public class EntityClassFinderServiceImpl implements EntityClassFinderService {
 
     private final EntityManager entityManager;
@@ -24,5 +27,17 @@ public class EntityClassFinderServiceImpl implements EntityClassFinderService {
                 .orElseThrow(() -> new RuntimeException("Could not find an entity with name: [" + name + "]."));
 
         return entityClass;
+    }
+
+    @Override
+    public Object createEntityInstanceForClass(Class<?> entityClass) {
+        try {
+            Constructor<?> constructor = entityClass.getConstructor();
+            Object instance = constructor.newInstance();
+
+            return instance;
+        } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException exception) {
+            throw new RuntimeException("Could not create an instance of class: [" + entityClass + "].", exception);
+        }
     }
 }
