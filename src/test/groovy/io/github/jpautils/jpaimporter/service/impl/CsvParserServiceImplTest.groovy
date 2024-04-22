@@ -189,11 +189,11 @@ class CsvParserServiceImplTest extends Specification {
 
         expect:
         parsedHeader.shouldKeepEntityReferenceAfterOperation
-        parsedHeader.entityReferenceNameColumnIndex == 2
+        parsedHeader.entityVariableNameForStoringInContextColumnIndex == 2
         parsedHeader.entityAttributes.size() == 1
         parsedHeader.entityAttributes[0].attributeName == "field"
 
-        parsedValueRow.entityReferenceName == "1 23"
+        parsedValueRow.entityVariableNameForStoringInContext == "1 23"
         parsedValueRow.attributeValues.size() == 1
         parsedValueRow.attributeValues[0].attributeValue == "referencedEntityUniqueKey"
     }
@@ -209,10 +209,10 @@ class CsvParserServiceImplTest extends Specification {
 
         expect:
         parsedHeader.shouldKeepEntityReferenceAfterOperation
-        parsedHeader.entityReferenceNameColumnIndex == 1
+        parsedHeader.entityVariableNameForStoringInContextColumnIndex == 1
         parsedHeader.entityAttributes.size() == 0
 
-        parsedValueRow.entityReferenceName == "1 23"
+        parsedValueRow.entityVariableNameForStoringInContext == "1 23"
         parsedValueRow.attributeValues.size() == 0
     }
 
@@ -286,7 +286,7 @@ class CsvParserServiceImplTest extends Specification {
         result.entityHeader.entityAttributes[1].isAttributeReferencingEntity == false
         result.entityHeader.entityAttributes[1].referencedEntityUniqueAttributes == null
 
-        result.entityValuesRows[0].entityReferenceName == "ref1"
+        result.entityValuesRows[0].entityVariableNameForStoringInContext == "ref1"
         result.entityValuesRows[0].attributeValues[0].attributeValue == "\" some ; , [] text \\ \""
         result.entityValuesRows[0].attributeValues[0].attributeValuesList == null
         result.entityValuesRows[0].attributeValues[0].attributeValuesMap == null
@@ -294,7 +294,7 @@ class CsvParserServiceImplTest extends Specification {
         result.entityValuesRows[0].attributeValues[1].attributeValuesList == ["\",,\"", "", "[]"]
         result.entityValuesRows[0].attributeValues[1].attributeValuesMap == null
 
-        result.entityValuesRows[1].entityReferenceName == ""
+        result.entityValuesRows[1].entityVariableNameForStoringInContext == ""
         result.entityValuesRows[1].attributeValues[0].attributeValue == "text aaa"
         result.entityValuesRows[1].attributeValues[0].attributeValuesList == null
         result.entityValuesRows[1].attributeValues[0].attributeValuesMap == null

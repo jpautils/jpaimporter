@@ -5,16 +5,16 @@ import java.util.List;
 public class ParsedEntityHeaderDto {
     private final List<ParsedEntityAttributeDto> entityAttributes;
     private final boolean shouldKeepEntityReferenceAfterOperation;
-    private final Integer entityReferenceNameColumnIndex;
+    private final Integer entityVariableNameForStoringInContextColumnIndex;
 
     public ParsedEntityHeaderDto(
             List<ParsedEntityAttributeDto> entityAttributes,
             boolean shouldKeepEntityReferenceAfterOperation,
-            Integer entityReferenceNameColumnIndex
+            Integer entityVariableNameForStoringInContextColumnIndex
     ) {
         this.shouldKeepEntityReferenceAfterOperation = shouldKeepEntityReferenceAfterOperation;
         this.entityAttributes = entityAttributes;
-        this.entityReferenceNameColumnIndex = entityReferenceNameColumnIndex;
+        this.entityVariableNameForStoringInContextColumnIndex = entityVariableNameForStoringInContextColumnIndex;
     }
 
     public boolean getShouldKeepEntityReferenceAfterOperation() {
@@ -25,7 +25,7 @@ public class ParsedEntityHeaderDto {
         return entityAttributes;
     }
 
-    public Integer getEntityReferenceNameColumnIndex() {
-        return entityReferenceNameColumnIndex;
+    public Integer getEntityVariableNameForStoringInContextColumnIndex() {
+        return entityVariableNameForStoringInContextColumnIndex;
     }
 }

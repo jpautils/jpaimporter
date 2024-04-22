@@ -189,13 +189,13 @@ public class CsvParserServiceImpl implements CsvParserService {
 
         List<String> lineColumns = Util.splitByCharacter(escapedLine, ';');
 
-        final String entityReferenceContextKey;
+        final String entityVariableNameForStoringInContext;
         if (entityAttributes.getShouldKeepEntityReferenceAfterOperation()) {
-            String escapedEntityReferenceContextKey = lineColumns.get(entityAttributes.getEntityReferenceNameColumnIndex());
-            entityReferenceContextKey = unescapeSpecialCharacters(escapedEntityReferenceContextKey.trim());
-            lineColumns.remove(entityAttributes.getEntityReferenceNameColumnIndex().intValue());
+            String escapedEntityVariableNameForStoringInContext = lineColumns.get(entityAttributes.getEntityVariableNameForStoringInContextColumnIndex());
+            entityVariableNameForStoringInContext = unescapeSpecialCharacters(escapedEntityVariableNameForStoringInContext.trim());
+            lineColumns.remove(entityAttributes.getEntityVariableNameForStoringInContextColumnIndex().intValue());
         } else {
-            entityReferenceContextKey = null;
+            entityVariableNameForStoringInContext = null;
         }
 
         if ((entityAttributes.getEntityAttributes().size() + 1) != lineColumns.size()) {
@@ -267,7 +267,7 @@ public class CsvParserServiceImpl implements CsvParserService {
 
         return new ParsedAttributeValuesRowDto(
                 entityValues,
-                entityReferenceContextKey
+                entityVariableNameForStoringInContext
         );
     }
 

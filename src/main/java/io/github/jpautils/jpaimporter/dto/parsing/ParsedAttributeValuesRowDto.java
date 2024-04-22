@@ -5,18 +5,18 @@ import java.util.List;
 public class ParsedAttributeValuesRowDto {
     private final List<ParsedAttributeValueDto> attributeValues;
 
-    private final String entityReferenceName;
+    private final String entityVariableNameForStoringInContext;
 
-    public ParsedAttributeValuesRowDto(List<ParsedAttributeValueDto> entityValues, String entityReferenceName) {
+    public ParsedAttributeValuesRowDto(List<ParsedAttributeValueDto> entityValues, String entityVariableNameForStoringInContext) {
         this.attributeValues = entityValues;
-        this.entityReferenceName = entityReferenceName;
+        this.entityVariableNameForStoringInContext = entityVariableNameForStoringInContext;
     }
 
     public List<ParsedAttributeValueDto> getAttributeValues() {
         return attributeValues;
     }
 
-    public String getEntityReferenceName() {
-        return entityReferenceName;
+    public String getEntityVariableNameForStoringInContext() {
+        return entityVariableNameForStoringInContext;
     }
 }
