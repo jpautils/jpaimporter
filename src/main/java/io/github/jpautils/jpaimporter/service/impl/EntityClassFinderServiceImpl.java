@@ -15,6 +15,7 @@ public class EntityClassFinderServiceImpl implements EntityClassFinderService {
     @Override
     public Class<?> getEntityClassForName(String name) {
         //TODO: Check if this operation is expensive and needs to be cached.
+        //TODO: If search by name unsuccessful, search by full name (including package) as well before throwing error.
         Class<?> entityClass = entityManager.getMetamodel().getEntities()
                 .stream()
                 .filter(entityType -> entityType.getName().equalsIgnoreCase(name))
