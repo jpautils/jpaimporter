@@ -21,6 +21,9 @@ dependencies {
     testImplementation("org.apache.groovy:groovy")
     testImplementation(platform("org.spockframework:spock-bom:2.3-groovy-4.0"))
     testImplementation("org.spockframework:spock-core")
+    //byte-buddy and objenesis are used by Spock to create mocks
+    testImplementation("net.bytebuddy:byte-buddy:1.14.13")
+    testImplementation("org.objenesis:objenesis:3.3")
 }
 
 tasks.test {
