@@ -11,20 +11,20 @@ import java.math.BigDecimal;
 
 public interface EntityAttributeSetter {
     void setEntityAttributeValue(
-            EntityAttributeCharacteristicsDto entityAttributeSetterCharacteristics,
+            EntityAttributeCharacteristicsDto entityAttributeCharacteristics,
             EntityAttributeValueDto entityAttributeValue,
             Object entity
     );
 
     Predicate insertAttributeInCriteriaQuerySearch(
-            EntityAttributeCharacteristicsDto entityAttributeSetterCharacteristics,
+            EntityAttributeCharacteristicsDto entityAttributeCharacteristics,
             EntityAttributeValueDto entityAttributeValue,
             String fieldName,
             CriteriaBuilder criteriaBuilder,
             Root<?> root
     );
 
-    boolean matchesEntityAttribute(EntityAttributeCharacteristicsDto entityAttributeSetterCharacteristics);
+    boolean matchesEntityAttribute(EntityAttributeCharacteristicsDto entityAttributeCharacteristics);
 
     BigDecimal getPriority();
 }

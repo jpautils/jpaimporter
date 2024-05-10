@@ -71,4 +71,18 @@ public class EntityAttributeValueDto {
     public Map<?, ?> getEntityValueMap() {
         return entityValueMap;
     }
+
+    @Override
+    public String toString() {
+        return "EntityAttributeValueDto{" +
+                "isValueSet=" + isValueSet +
+                ", shouldAppendCollection=" + shouldAppendCollection +
+                ", stringValue='" + stringValue + '\'' +
+                ", stringValueList=" + stringValueList +
+                ", stringValueMap=" + stringValueMap +
+                ", entityValue=" + entityValue +
+                ", entityValueList=" + entityValueList +
+                ", entityValueMap=" + entityValueMap +
+                '}';
+    }
 }
