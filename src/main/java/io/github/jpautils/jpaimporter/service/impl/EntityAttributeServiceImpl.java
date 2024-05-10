@@ -502,7 +502,7 @@ public class EntityAttributeServiceImpl implements EntityAttributeService {
             return null;
         }
 
-        if (trimmedValue.length() > 2 && trimmedValue.startsWith("\"") && trimmedValue.endsWith("\"")) {
+        if (trimmedValue.length() > 1 && trimmedValue.startsWith("\"") && trimmedValue.endsWith("\"")) {
             return trimmedValue.substring(1, trimmedValue.length() - 1);
         }
 
@@ -518,7 +518,7 @@ public class EntityAttributeServiceImpl implements EntityAttributeService {
 
         final String valueWithoutDoubleQuotes;
 
-        if (trimmedValue.length() > 2 && trimmedValue.startsWith("\"") && trimmedValue.endsWith("\"")) {
+        if (trimmedValue.length() > 1 && trimmedValue.startsWith("\"") && trimmedValue.endsWith("\"")) {
             valueWithoutDoubleQuotes = trimmedValue.substring(1, trimmedValue.length() - 1);
         } else {
             valueWithoutDoubleQuotes = trimmedValue;
